@@ -12,17 +12,15 @@ class GUI(QMainWindow):
         self.setWindowTitle('Notepad--')
         self.setWindowIcon(QIcon('icon.png'))
 
-        self.action10pt.triggered.connect(lambda: self.change_size(10))
-        self.action12pt.triggered.connect(lambda: self.change_size(12))
-        self.action16pt.triggered.connect(lambda: self.change_size(16))
-        self.action24pt.triggered.connect(lambda: self.change_size(24))
-
         self.actionOpen.triggered.connect(self.open_file)
         self.actionSave.triggered.connect(self.save_file)
         self.actionClose.triggered.connect(self.close)
+        self.actiongetfontsize.triggered.connect(self.get_font_size)
 
-    def change_size(self, size):
-        self.plainTextEdit.setFont(QFont('Arial', size))
+    def get_font_size(self):
+        size, ok = QInputDialog.getInt(self, 'Font Size', 'Enter font size:', 12, 1, 120, 1)
+        if ok:
+            self.plainTextEdit.setFont(QFont('Arial', size))
 
     def open_file(self):
         options = QFileDialog.Options()
@@ -34,7 +32,8 @@ class GUI(QMainWindow):
 
     def save_file(self):
         options = QFileDialog.Options()
-        filename, _ = QFileDialog.getSaveFileName(self, 'Save File', '', 'Text Files (*.txt);;All Files (*)', options=options)
+        filename, _ = QFileDialog.getSaveFileName(self, 'Save File', '', 'Text Files (*.txt);;All Files (*)',
+                                                  options=options)
         if filename != '':
             with open(filename, 'w') as f:
                 f.write(self.plainTextEdit.toPlainText())
@@ -42,9 +41,9 @@ class GUI(QMainWindow):
     def closeEvent(self, event):
         reply = QMessageBox()
         reply.setText("Do you want to save?")
-        reply.addButton(QPushButton('Save'), QMessageBox.YesRole) #0
-        reply.addButton(QPushButton("Don't save"), QMessageBox.NoRole) #1
-        reply.addButton(QPushButton('Cancel'), QMessageBox.RejectRole) #2
+        reply.addButton(QPushButton('Save'), QMessageBox.YesRole)
+        reply.addButton(QPushButton("Don't save"), QMessageBox.NoRole)
+        reply.addButton(QPushButton('Cancel'), QMessageBox.RejectRole)
 
         anwser = reply.exec_()
 
@@ -53,7 +52,6 @@ class GUI(QMainWindow):
             event.accept()
         elif anwser == 2:
             event.ignore()
-
 def main():
     app = QApplication([])
     window = GUI()

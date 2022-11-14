@@ -24,6 +24,7 @@
     </item>
    </layout>
   </widget>
+  <widget class="QStatusBar" name="statusbar"/>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
@@ -45,21 +46,11 @@
     <property name="title">
      <string>Option</string>
     </property>
-    <widget class="QMenu" name="menuFont_Size">
-     <property name="title">
-      <string>Font Size</string>
-     </property>
-     <addaction name="action10pt"/>
-     <addaction name="action12pt"/>
-     <addaction name="action16pt"/>
-     <addaction name="action24pt"/>
-    </widget>
-    <addaction name="menuFont_Size"/>
+    <addaction name="actiongetfontsize"/>
    </widget>
    <addaction name="menuFile"/>
    <addaction name="menuOption"/>
   </widget>
-  <widget class="QStatusBar" name="statusbar"/>
   <action name="actionOpen">
    <property name="text">
     <string>Open</string>
@@ -118,6 +109,11 @@
   <action name="action24pt">
    <property name="text">
     <string>24pt</string>
+   </property>
+  </action>
+  <action name="actiongetfontsize">
+   <property name="text">
+    <string>Font Size</string>
    </property>
   </action>
  </widget>

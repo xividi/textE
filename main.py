@@ -26,7 +26,8 @@ class GUI(QMainWindow):
 
     def open_file(self):
         options = QFileDialog.Options()
-        filename, _ = QFileDialog.getOpenFileName(self, 'Open File', '', 'Text Files (*.txt);; Python Files (*.py)', options=options)
+        filename, _ = QFileDialog.getOpenFileName(self, 'Open File', '', 'Text Files (*.txt);; Python Files (*.py)',
+                                                  options=options)
         if filename != '':
             with open(filename, 'r') as f:
                 self.plainTextEdit.setPlainText(f.read())
@@ -39,10 +40,18 @@ class GUI(QMainWindow):
                 f.write(self.plainTextEdit.toPlainText())
 
     def closeEvent(self, event):
-        reply = QMessageBox.question(self, 'Message', 'Are you sure to quit?', QMessageBox.Yes | QMessageBox.No, QMessageBox.No)
-        if reply == QMessageBox.Yes:
+        reply = QMessageBox()
+        reply.setText("Do you want to save?")
+        reply.addButton(QPushButton('Save'), QMessageBox.YesRole) #0
+        reply.addButton(QPushButton("Don't save"), QMessageBox.NoRole) #1
+        reply.addButton(QPushButton('Cancel'), QMessageBox.RejectRole) #2
+
+        anwser = reply.exec_()
+
+        if anwser == 0:
+            self.save_file()
             event.accept()
-        else:
+        elif anwser == 2:
             event.ignore()
 
 def main():

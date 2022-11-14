@@ -45,9 +45,10 @@
      <property name="title">
       <string>Font Size</string>
      </property>
-     <addaction name="action12"/>
-     <addaction name="action24"/>
-     <addaction name="action36"/>
+     <addaction name="action10pt"/>
+     <addaction name="action12pt"/>
+     <addaction name="action16pt"/>
+     <addaction name="action24pt"/>
     </widget>
     <addaction name="menuFont_Size"/>
    </widget>
@@ -83,6 +84,36 @@
   <action name="action36">
    <property name="text">
     <string>36</string>
+   </property>
+  </action>
+  <action name="actionfont2">
+   <property name="text">
+    <string>font2</string>
+   </property>
+  </action>
+  <action name="action8">
+   <property name="text">
+    <string>8</string>
+   </property>
+  </action>
+  <action name="action10pt">
+   <property name="text">
+    <string>10pt</string>
+   </property>
+  </action>
+  <action name="action12pt">
+   <property name="text">
+    <string>12pt</string>
+   </property>
+  </action>
+  <action name="action16pt">
+   <property name="text">
+    <string>16pt</string>
+   </property>
+  </action>
+  <action name="action24pt">
+   <property name="text">
+    <string>24pt</string>
    </property>
   </action>
  </widget>

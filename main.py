@@ -10,7 +10,7 @@ class GUI(QMainWindow):
         self.show()
         self.plainTextEdit.setFont(QFont('Arial', 12))
 
-        self.setWindowTitle('Notepad--')
+        self.setWindowTitle('Evil Notepad')
         self.setWindowIcon(QIcon('icon.png'))
 
         self.actionOpen.triggered.connect(self.open_file)

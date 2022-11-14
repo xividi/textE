@@ -19,6 +19,7 @@ class GUI(QMainWindow):
 
         self.actionOpen.triggered.connect(self.open_file)
         self.actionSave.triggered.connect(self.save_file)
+        self.actionClose.triggered.connect(self.close)
 
     def change_size(self, size):
         self.plainTextEdit.setFont(QFont('Arial', size))
@@ -36,6 +37,13 @@ class GUI(QMainWindow):
         if filename != '':
             with open(filename, 'w') as f:
                 f.write(self.plainTextEdit.toPlainText())
+
+    def closeEvent(self, event):
+        reply = QMessageBox.question(self, 'Message', 'Are you sure to quit?', QMessageBox.Yes | QMessageBox.No, QMessageBox.No)
+        if reply == QMessageBox.Yes:
+            event.accept()
+        else:
+            event.ignore()
 
 def main():
     app = QApplication([])

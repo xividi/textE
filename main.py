@@ -1,4 +1,4 @@
-from PyQt5.QtGui import QIcon
+from PyQt5.QtGui import QIcon, QFont
 from PyQt5.QtWidgets import *
 from PyQt5 import uic
 
@@ -10,6 +10,9 @@ class GUI(QMainWindow):
 
         self.setWindowTitle('TextEditor')
         self.setWindowIcon(QIcon('icon.png'))
+
+    def change_size(self, size):
+        self.plainTextEdit.setFont(QFont('Arial', size))
 
 def main():
     app = QApplication([])

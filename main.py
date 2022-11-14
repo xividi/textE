@@ -18,12 +18,12 @@ class GUI(QMainWindow):
         self.actionClose.triggered.connect(self.close)
 
         self.actiongetfontsize.triggered.connect(self.get_font_size)
-        self.actionFont_Type.triggered.connect(self.font_type_changer)
+        self.actionFont_Type.triggered.connect(self.font_family_changer)
 
         self.actionLine_Wrap_Mode.setCheckable(True)
         self.actionLine_Wrap_Mode.triggered.connect(self.line_wrap_mode)
 
-    def font_type_changer(self):
+    def font_family_changer(self):
         font, ok = QFontDialog.getFont()
         if ok:
             self.plainTextEdit.setFont(font)
@@ -35,10 +35,10 @@ class GUI(QMainWindow):
             self.plainTextEdit.setLineWrapMode(QPlainTextEdit.NoWrap)
 
     def get_font_size(self):
+        font = self.plainTextEdit.font().family()
         size, ok = QInputDialog.getInt(self, 'Font Size', 'Enter font size:', 12, 1, 130, 1)
         if ok:
-            self.plainTextEdit.setFont(QFont('Arial', size))
-            return size
+            self.plainTextEdit.setFont(QFont(font, size))
 
     def open_file(self):
         options = QFileDialog.Options()

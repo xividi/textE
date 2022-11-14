@@ -15,10 +15,20 @@ class GUI(QMainWindow):
         self.actionOpen.triggered.connect(self.open_file)
         self.actionSave.triggered.connect(self.save_file)
         self.actionClose.triggered.connect(self.close)
+
         self.actiongetfontsize.triggered.connect(self.get_font_size)
 
+        self.actionLine_Wrap_Mode.setCheckable(True)
+        self.actionLine_Wrap_Mode.triggered.connect(self.line_wrap_mode)
+
+
+    def line_wrap_mode(self):
+        if self.actionLine_Wrap_Mode.isChecked():
+            self.plainTextEdit.setLineWrapMode(QPlainTextEdit.WidgetWidth)
+        else:
+            self.plainTextEdit.setLineWrapMode(QPlainTextEdit.NoWrap)
     def get_font_size(self):
-        size, ok = QInputDialog.getInt(self, 'Font Size', 'Enter font size:', 12, 1, 120, 1)
+        size, ok = QInputDialog.getInt(self, 'Font Size', 'Enter font size:', 12, 1, 130, 1)
         if ok:
             self.plainTextEdit.setFont(QFont('Arial', size))
 

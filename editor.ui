@@ -47,6 +47,8 @@
      <string>Option</string>
     </property>
     <addaction name="actiongetfontsize"/>
+    <addaction name="actionFont_Type"/>
+    <addaction name="actionLine_Wrap_Mode"/>
    </widget>
    <addaction name="menuFile"/>
    <addaction name="menuOption"/>
@@ -114,6 +116,21 @@
   <action name="actiongetfontsize">
    <property name="text">
     <string>Font Size</string>
+   </property>
+  </action>
+  <action name="actionFont_Type">
+   <property name="text">
+    <string>Font Type</string>
+   </property>
+  </action>
+  <action name="actionLine_Wrap_Mode">
+   <property name="text">
+    <string>Line Wrap Mode </string>
+   </property>
+  </action>
+  <action name="actionasd">
+   <property name="text">
+    <string>asd</string>
    </property>
   </action>
  </widget>

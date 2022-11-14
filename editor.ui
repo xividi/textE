@@ -48,6 +48,7 @@
     </property>
     <addaction name="actiongetfontsize"/>
     <addaction name="actionFont_Type"/>
+    <addaction name="separator"/>
     <addaction name="actionLine_Wrap_Mode"/>
    </widget>
    <addaction name="menuFile"/>
